@@ -30,11 +30,13 @@
 
     <LinearLayout
         android:id="@+id/dieLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/rollbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4">
 
         <ImageView
@@ -54,13 +56,14 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:gravity="bottom"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/rollbtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dieLayout">
+        app:layout_constraintTop_toBottomOf="@id/dieLayout"
+        app:layout_constraintVertical_bias="0.9">
 
         <TextView
             android:id="@+id/playerScore"
