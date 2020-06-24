@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.graphics.drawable.toDrawable
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity() {
 
         playerScore.text = 0.toString()
         npcScore.text = 0.toString()
+
+
         rollbtn.setOnClickListener {
             var die1Num:Int = (0..5).random() + 1
             var die2Num:Int = (0..5).random() + 1
@@ -41,4 +44,20 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        val playerScore:TextView = findViewById(R.id.playerScore)
+        val npcScore: TextView = findViewById(R.id.npcScore)
+        outState.putString("ScoresPlayer",playerScore.text.toString())
+        outState.putString("ScoresNPC",npcScore.text.toString())
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        playerScore.text = savedInstanceState.getString("ScoresPlayer")
+        npcScore.text = savedInstanceState.getString("ScoresNPC")
+
+    }
+
 }
